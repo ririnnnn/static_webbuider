@@ -1,7 +1,7 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import EditorPages from "./pages/editor";
 
 function App() {
@@ -9,7 +9,13 @@ function App() {
 
   return (
     <>
-      <EditorPages></EditorPages>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<EditorPages />}>
+            <Route index element={<EditorPages />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

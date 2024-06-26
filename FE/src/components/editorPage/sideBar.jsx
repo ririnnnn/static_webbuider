@@ -1,17 +1,38 @@
 import EditorMenuItem from "./menuItem";
-import Text from "../editables/text";
+import { Element } from "@craftjs/core";
+
+import * as ediable from "../editables";
+import Wrapper from "./wrapper";
 
 function EditorSideBar() {
   return (
-    <div className="w-48 h-full bg-stone-100">
+    <div className="w-48 h-full bg-stone-100 border-r border-stone-200">
       <ul className="p-1">
         <EditorMenuItem
-          text="Text"
-          component={<Text text="new!!!"></Text>}
+          text={"div"}
+          component={
+            <Element
+              Element_={ediable.Div}
+              is={Wrapper}
+              className="w-full min-h-60 bg-gray-100"
+              cfg="div"
+              canvas
+            ></Element>
+          }
+          icon="fa-solid fa-font"
         ></EditorMenuItem>
-        <EditorMenuItem text="item 2"></EditorMenuItem>
-        <EditorMenuItem text="item 3"></EditorMenuItem>
-        <EditorMenuItem text="item 4"></EditorMenuItem>
+        <EditorMenuItem
+          text={"button"}
+          component={
+            <Wrapper
+              Element_={ediable.Button}
+              text="button"
+              cfg="button"
+              className="w-fit inline-block py-1 px-2 bg-green-300 hover:bg-green-200 rounded"
+            ></Wrapper>
+          }
+          icon="fa-solid fa-font"
+        ></EditorMenuItem>
       </ul>
     </div>
   );
