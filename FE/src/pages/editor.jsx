@@ -7,7 +7,6 @@ import { Fragment, createContext, useEffect, useState } from "react";
 import RightSideMenu from "../components/editorPage/rightSideMenu";
 
 import * as editable from "../components/editables";
-import SelectedWrapper from "../components/editorPage/selectedWrapper";
 import Wrapper from "../components/editorPage/wrapper";
 
 export const editorContext = createContext();
@@ -18,6 +17,7 @@ function EditorPages() {
     selectedNode: selectedNode,
     setSelectedNode: setSelectedNode,
     isEditing: true,
+    nodeChange: false,
   });
   useEffect(() => {
     setContextValue({
@@ -26,9 +26,21 @@ function EditorPages() {
       isEditing: true,
     });
   }, [selectedNode]);
+  function detectNodeChange() {
+    setContextValue({
+      selectedNode: selectedNode,
+      setSelectedNode: setSelectedNode,
+      isEditing: true,
+    });
+  }
   return (
     <editorContext.Provider value={contextValue}>
-      <Editor resolver={{ ...editable, Wrapper }}>
+      <Editor
+        resolver={{ ...editable, Wrapper }}
+        onNodesChange={() => {
+          detectNodeChange();
+        }}
+      >
         <div className="h-screen flex flex-col w-screen font-sans text-base">
           <EditorTopBar text="test Editor Top bar"></EditorTopBar>
           <div className="flex-1 flex" style={{ height: "calc(100vh - 32px)" }}>

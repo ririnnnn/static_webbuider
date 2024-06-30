@@ -1,6 +1,6 @@
 import { useEditor } from "@craftjs/core";
-import { useState } from "react";
-
+import { useContext, useEffect, useState } from "react";
+import { editorContext } from "../../pages/editor";
 function NodeDisplay(props) {
   const [isOpened, setIsOpened] = useState(true);
   const name = props.node.data.props.cfg;
@@ -13,7 +13,6 @@ function NodeDisplay(props) {
     </div>
   );
 }
-
 function NodeTreePanel(props) {
   const {
     query: { node },
@@ -35,7 +34,14 @@ function NodeTreePanel(props) {
       returnValue.push(<NodeDisplay node={node} key={nodeId}></NodeDisplay>);
     return returnValue;
   }
-  const displayList = processNodeTree(nodeTree, "ROOT");
+  const [displayList, setDisplayList] = useState(
+    processNodeTree(nodeTree, "ROOT")
+  );
+
+  const context = useContext(editorContext);
+  useEffect(() => {
+    setDisplayList(processNodeTree(nodeTree, "ROOT"));
+  }, [context]);
   return (
     <div className="h-full w-60 bg-stone-100 border-l border-stone-300 px-1 overflow-y-auto text-xs">
       {displayList}

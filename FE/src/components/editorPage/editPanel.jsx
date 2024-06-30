@@ -17,10 +17,10 @@ function EditorEditPanel() {
     if (nodeId && nodeId !== "ROOT") {
       const nodeProps = node(nodeId).get().data.props;
       const nodeEdiable = editorCfg[node(nodeId).get().data.props.cfg];
-      setEditList(prepareEditList(nodeEdiable, nodeProps));
+      setEditList(prepareEditList(nodeEdiable, nodeProps, null, nodeId));
     } else setEditList(<span className="m-2">no item selected</span>);
   }, [events.selected.values().next().value]);
-  function prepareEditList(nodeEdiable, nodeProps, title) {
+  function prepareEditList(nodeEdiable, nodeProps, title, nodeId) {
     const keys = Object.keys(nodeEdiable);
     const editlistTemp = keys.map((key) => {
       if (typeof nodeEdiable[key] !== "object")
@@ -31,14 +31,15 @@ function EditorEditPanel() {
               type={nodeEdiable[key]}
               value={nodeProps[key]}
               handleChange={(value) => {
-                setProp(context.selectedNode, (props) => {
+                console.log(nodeId, key, value);
+                setProp(nodeId, (props) => {
                   props[key] = value;
                 });
               }}
             ></CustomInput>
           </div>
         );
-      else return prepareEditList(nodeEdiable[key], nodeProps, key);
+      else return prepareEditList(nodeEdiable[key], nodeProps, key, nodeId);
     });
     if (title)
       return <EditListGroup title={title}>{editlistTemp}</EditListGroup>;

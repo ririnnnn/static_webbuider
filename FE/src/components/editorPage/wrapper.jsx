@@ -3,14 +3,18 @@ import { useContext, useEffect, useState } from "react";
 import { editorContext } from "../../pages/editor";
 import { editorCfg } from "./editorCfg";
 
-function Wrapper({ Element_, className, cfg, children, ...props }) {
+import * as ediable from "../editables";
+
+const ediableList = { div: ediable.Div, button: ediable.Button };
+
+function Wrapper({ componentName, className, cfg, children, ...props }) {
   const check = /(flex|grid|top|inline|block|float|w-\d\/\d)/;
   const context = useContext(editorContext);
   const node = useNode((node) => ({
     events: node.events,
     data: node.data,
   }));
-  const editor = useEditor();
+  const { options } = useEditor((editor) => ({ options: editor.options }));
   const [SCString, setSCString] = useState(
     classes2String(className.split(" ").filter((item) => check.test(item)))
   );
@@ -34,7 +38,9 @@ function Wrapper({ Element_, className, cfg, children, ...props }) {
     });
     return str;
   }
-  return (
+  const InnerComponent = ediableList[componentName];
+  console.log("wrapper", className);
+  return options.enabled ? (
     <div
       className={
         (node.events.selected ? "border-2 border-stone-900 " : "") + SCString
@@ -82,10 +88,14 @@ function Wrapper({ Element_, className, cfg, children, ...props }) {
           <i className="fa-solid fa-xmark"></i>
         </div>
       </div>
-      <Element_ {...props} className={nonSCString}>
-        {children}
-      </Element_>
+      <InnerComponent {...props} className={nonSCString}>
+        {children ? children : ""}
+      </InnerComponent>
     </div>
+  ) : (
+    <InnerComponent {...props} className={className}>
+      {children ? children : ""}
+    </InnerComponent>
   );
 }
 export default Wrapper;

@@ -12,7 +12,7 @@ function EditorSideBar() {
           text={"div"}
           component={
             <Element
-              Element_={ediable.Div}
+              componentName={"div"}
               is={Wrapper}
               className="w-full min-h-60 bg-gray-100"
               cfg="div"
@@ -25,7 +25,7 @@ function EditorSideBar() {
           text={"button"}
           component={
             <Wrapper
-              Element_={ediable.Button}
+              componentName={"button"}
               text="button"
               cfg="button"
               className="w-fit inline-block py-1 px-2 bg-green-300 hover:bg-green-200 rounded"

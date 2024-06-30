@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "E:\\DO_AN\\BE\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|e:\\do_an\\be\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|e:\\do_an\\be\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|e:\\do_an\\be\\api\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|solutionrelative:api\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,16 +39,8 @@
       "RelativeMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|solutionrelative:api\\models\\webbuildercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|e:\\do_an\\be\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{03B60A17-7CDB-483A-9F5E-F27AE7E39744}|BE\\BE.csproj|e:\\do_an\\be\\be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{03B60A17-7CDB-483A-9F5E-F27AE7E39744}|BE\\BE.csproj|solutionrelative:be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|e:\\do_an\\be\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|e:\\do_an\\be\\api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -86,37 +86,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\DO_AN\\BE\\ImagesHost\\Program.cs",
-              "RelativeDocumentMoniker": "ImagesHost\\Program.cs",
-              "ToolTip": "E:\\DO_AN\\BE\\ImagesHost\\Program.cs",
-              "RelativeToolTip": "ImagesHost\\Program.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAswBkAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T08:43:05.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PagesController.cs",
-              "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Controllers\\PagesController.cs",
-              "RelativeDocumentMoniker": "API\\Controllers\\PagesController.cs",
-              "ToolTip": "E:\\DO_AN\\BE\\API\\Controllers\\PagesController.cs",
-              "RelativeToolTip": "API\\Controllers\\PagesController.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAA1wAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T06:38:05.695Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "AccountsController.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Controllers\\AccountsController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\AccountsController.cs",
@@ -124,25 +98,23 @@
               "RelativeToolTip": "API\\Controllers\\AccountsController.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAkwHoAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T06:36:51.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T06:36:51.598Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Account.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Models\\Account.cs",
               "RelativeDocumentMoniker": "API\\Models\\Account.cs",
               "ToolTip": "E:\\DO_AN\\BE\\API\\Models\\Account.cs",
               "RelativeToolTip": "API\\Models\\Account.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAA1wA8AAAAAAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T06:36:08.181Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T06:36:08.181Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "WebbuilderContext.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Models\\WebbuilderContext.cs",
               "RelativeDocumentMoniker": "API\\Models\\WebbuilderContext.cs",
@@ -150,25 +122,23 @@
               "RelativeToolTip": "API\\Models\\WebbuilderContext.cs",
               "ViewState": "AQIAADAAAAAAAAAAAAAowBcAAACmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T06:27:53.8Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T06:27:53.8Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "API",
+              "Title": "API.csproj",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\API.csproj",
               "RelativeDocumentMoniker": "API\\API.csproj",
               "ToolTip": "E:\\DO_AN\\BE\\API\\API.csproj",
               "RelativeToolTip": "API\\API.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-06-19T06:13:03.565Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T06:13:03.565Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "LoginController.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\LoginController.cs",
@@ -176,12 +146,11 @@
               "RelativeToolTip": "API\\Controllers\\LoginController.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAiwDEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T06:09:58.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T06:09:58.898Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "LoginInfor.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Models\\LoginInfor.cs",
               "RelativeDocumentMoniker": "API\\Models\\LoginInfor.cs",
@@ -189,21 +158,56 @@
               "RelativeToolTip": "API\\Models\\LoginInfor.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T06:31:51.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T06:31:51.26Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Program.cs",
               "RelativeDocumentMoniker": "API\\Program.cs",
               "ToolTip": "E:\\DO_AN\\BE\\API\\Program.cs",
               "RelativeToolTip": "API\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-19T06:06:57.264Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\DO_AN\\BE\\API\\appsettings.json",
+              "RelativeDocumentMoniker": "API\\appsettings.json",
+              "ToolTip": "E:\\DO_AN\\BE\\API\\appsettings.json",
+              "RelativeToolTip": "API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAACGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-19T06:05:59.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PagesController.cs",
+              "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Controllers\\PagesController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\PagesController.cs",
+              "ToolTip": "E:\\DO_AN\\BE\\API\\Controllers\\PagesController.cs",
+              "RelativeToolTip": "API\\Controllers\\PagesController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T06:38:05.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\DO_AN\\BE\\ImagesHost\\Program.cs",
+              "RelativeDocumentMoniker": "ImagesHost\\Program.cs",
+              "ToolTip": "E:\\DO_AN\\BE\\ImagesHost\\Program.cs",
+              "RelativeToolTip": "ImagesHost\\Program.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAswBkAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T08:43:05.83Z"
             },
             {
               "$type": "Document",
@@ -215,25 +219,11 @@
               "RelativeToolTip": "BE\\BE.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-06-19T06:06:05.165Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T06:06:05.165Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\DO_AN\\BE\\API\\appsettings.json",
-              "RelativeDocumentMoniker": "API\\appsettings.json",
-              "ToolTip": "E:\\DO_AN\\BE\\API\\appsettings.json",
-              "RelativeToolTip": "API\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAACGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-19T06:05:59.27Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\Program.cs",
               "RelativeDocumentMoniker": "BE\\Program.cs",
@@ -241,8 +231,7 @@
               "RelativeToolTip": "BE\\Program.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAswA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T02:01:02.76Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T02:01:02.76Z"
             },
             {
               "$type": "Document",
@@ -254,8 +243,7 @@
               "RelativeToolTip": "BE\\Controllers\\LoginController.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAYwBAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T04:40:12.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T04:40:12.372Z"
             },
             {
               "$type": "Document",
@@ -267,8 +255,7 @@
               "RelativeToolTip": "BE\\Controllers\\AccountsController.cs",
               "ViewState": "AQIAADUAAAAAAAAAAAAgwIUAAACMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T03:30:59.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T03:30:59.031Z"
             },
             {
               "$type": "Document",
@@ -280,8 +267,7 @@
               "RelativeToolTip": "BE\\Models\\LoginRequest.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T02:11:52.206Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T02:11:52.206Z"
             },
             {
               "$type": "Document",
@@ -293,8 +279,7 @@
               "RelativeToolTip": "BE\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-19T02:04:35.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T02:04:35.628Z"
             },
             {
               "$type": "Document",
@@ -306,8 +291,7 @@
               "RelativeToolTip": "BE\\Controllers\\WeatherForecastController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T04:04:52.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T04:04:52.294Z"
             },
             {
               "$type": "Document",
@@ -319,8 +303,7 @@
               "RelativeToolTip": "BE\\Controllers\\PagesController.cs",
               "ViewState": "AQIAAD0AAAAAAAAAAAAkwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T03:31:26.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T03:31:26.963Z"
             },
             {
               "$type": "Document",
@@ -332,8 +315,7 @@
               "RelativeToolTip": "BE\\Models\\WebbuilderContext.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAYwBYAAACWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T03:29:37.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-18T03:29:37.544Z"
             }
           ]
         }
