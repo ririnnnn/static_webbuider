@@ -14,9 +14,7 @@ export async function sendRequest(
       "Content-Type": "application/json",
       Authorization: "Bearer " + window.sessionStorage.getItem("userToken"),
     },
-    body: JSON.stringify(bodyData),
-  }).then((response) => {
-    if (callback) callback(response);
+    body: method.toLowerCase() !== "get" ? JSON.stringify(bodyData) : null,
   });
   return response;
 }

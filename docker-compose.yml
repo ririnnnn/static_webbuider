@@ -1,0 +1,6 @@
+version: '1'
+services:
+  front-end:
+    build: ./FE
+    ports:
+      - "5173:80"

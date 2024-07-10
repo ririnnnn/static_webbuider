@@ -7,7 +7,6 @@ function RegisterPage() {
   const [password2, setPassword2] = useState("");
 
   async function register() {}
-
   return (
     <>
       <div className="border border-stone-600 rounded-xl p-4 w-fit">
