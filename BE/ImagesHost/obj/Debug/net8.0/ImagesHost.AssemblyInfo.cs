@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ImagesHost")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38bbef31eff14cc229ba45225688d440c1fdf7d9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9de1301e9f7006b065dd1a903d68bbcad1e37c47")]
 [assembly: System.Reflection.AssemblyProductAttribute("ImagesHost")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImagesHost")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

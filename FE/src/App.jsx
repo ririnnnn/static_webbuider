@@ -19,13 +19,13 @@ function App() {
           <Route path="/">
             <Route index element={<IndexPage />} />
 
-            <Route path="Login" element={<LoginPage />} />
-            <Route path="Register" element={<RegisterPage />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="register" element={<RegisterPage />} />
 
-            <Route path="Profile" element={<ProfilePage />} />
+            <Route path="profile" element={<ProfilePage />} />
 
-            <Route path="View" element={<View />} />
-            <Route path="Edit" element={<EditorPages />} />
+            <Route path="view" element={<View />} />
+            <Route path="edit" element={<EditorPages />} />
           </Route>
         </Routes>
       </BrowserRouter>

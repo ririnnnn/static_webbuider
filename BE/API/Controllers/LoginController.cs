@@ -1,4 +1,4 @@
-﻿using API.Models;
+﻿using API.Models2;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

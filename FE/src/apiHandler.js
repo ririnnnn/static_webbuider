@@ -1,4 +1,4 @@
-const api = "https://localhost:7180/api/";
+const api = "http://localhost:5165/api/";
 
 export async function sendRequest(
   controller,

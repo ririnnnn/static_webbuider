@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import { sendRequest } from "../apiHandler";
-import { redirect } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
+import { LoginManager } from "../loginManager";
 
 function IndexPage() {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  async function getUser() {
-    const response = await sendRequest("accounts/profile", "get", null, null);
-    if (response.status == 200) {
-      setUser(response);
-    } else setUser(null);
-  }
+
   useEffect(() => {
-    getUser();
+    const getUserAsync = async () => {
+      setUser(await LoginManager.getProfile());
+    };
+    getUserAsync();
   }, []);
 
   return (
     <div>
       <div>
         <div className="float-end mr-3">
-          {user ? (
+          {user != null ? (
             <a href="">Log out</a>
           ) : (
             <>
@@ -32,7 +32,7 @@ function IndexPage() {
         <button
           className="bg-blue-300"
           onClick={() => {
-            redirect("/");
+            navigate("/profile");
           }}
         >
           To profile

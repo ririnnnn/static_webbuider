@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\DO_AN\\BE\\ImagesHost\\ImagesHost.csproj": {}
+    "/run/media/quang/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj": {}
   },
   "projects": {
-    "E:\\DO_AN\\BE\\ImagesHost\\ImagesHost.csproj": {
+    "/run/media/quang/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\DO_AN\\BE\\ImagesHost\\ImagesHost.csproj",
+        "projectUniqueName": "/run/media/quang/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj",
         "projectName": "ImagesHost",
-        "projectPath": "E:\\DO_AN\\BE\\ImagesHost\\ImagesHost.csproj",
-        "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
-        "outputPath": "E:\\DO_AN\\BE\\ImagesHost\\obj\\",
+        "projectPath": "/run/media/quang/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj",
+        "packagesPath": "/home/quang/.nuget/packages/",
+        "outputPath": "/run/media/quang/Shared/DO_AN/BE/ImagesHost/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/quang/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -66,6 +54,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.6, 8.0.6]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -74,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.106/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
