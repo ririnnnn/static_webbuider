@@ -1,11 +1,12 @@
-import { Editor, Frame, Element } from "@craftjs/core";
+import { Editor, Frame, Element, useEditor } from "@craftjs/core";
 
 import Viewport from "./viewport";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Container } from "../editables";
 
-function EditorCanvas({ props, children }) {
+function EditorCanvas({ props, children, page }) {
+  const editor = useEditor();
   // viewport information
   const [viewportHeight, setViewportHeight] = useState(1080);
   const [viewportWidth, setViewportWidth] = useState(1920);
@@ -34,6 +35,9 @@ function EditorCanvas({ props, children }) {
     else if (newScale > 10.0) newScale = 10.0;
     setScale(newScale);
   }
+  useEffect(() => {
+    if (page.pageData) editor.actions.deserialize(page.pageData);
+  }, [page]);
   return (
     <div
       className="flex-1 overflow-hidden h-full"

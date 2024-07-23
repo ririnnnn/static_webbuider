@@ -433,11 +433,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/run/media/quang/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj",
+      "projectUniqueName": "/mnt/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj",
       "projectName": "ImagesHost",
-      "projectPath": "/run/media/quang/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj",
+      "projectPath": "/mnt/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj",
       "packagesPath": "/home/quang/.nuget/packages/",
-      "outputPath": "/run/media/quang/Shared/DO_AN/BE/ImagesHost/obj/",
+      "outputPath": "/mnt/Shared/DO_AN/BE/ImagesHost/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/quang/.nuget/NuGet/NuGet.Config"

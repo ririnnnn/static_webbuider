@@ -24,7 +24,7 @@ function LoginPage() {
     } else alert("Lỗi hệ thống");
   }
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center text-base">
       <div className="w-72 h-full pt-10">
         <div className="border border-stone-600 rounded p-4 mb-3">
           <div className="py-1">
@@ -38,18 +38,17 @@ function LoginPage() {
           </div>
           <div className="py-1">
             <div className="my-1">Password</div>
-            <input
+            <Input
               type="password"
-              className="border border-stone-600 rounded w-full"
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
-            ></input>
+            />
           </div>
           <div>
             <button
-              className="font-bold text-white font-sans bg-green-600 rounded w-full p-1"
+              className="font-bold text-white font-sans bg-green-600 rounded w-full p-1 mt-4"
               onClick={() => {
                 login();
               }}

@@ -3,7 +3,7 @@ import TopBar from "../components/profilePage/topBar";
 import SitesMonitors from "../components/profilePage/sitesMonitor";
 
 function ProfilePage() {
-  const [content, setContent] = useState();
+  const [content, setContent] = useState(<SitesMonitors />);
 
   const [leftMenuData, setLeftMenuData] = useState([
     {
@@ -32,6 +32,7 @@ function ProfilePage() {
           >
             {leftMenuData.map((item) => (
               <div
+                key={item}
                 className="mx-2 rounded px-2 py-1 hover:bg-zinc-200 flex items-center select-none"
                 onClick={() => {
                   setContent(item.content);

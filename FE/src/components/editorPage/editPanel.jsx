@@ -31,7 +31,6 @@ function EditorEditPanel() {
               type={nodeEdiable[key]}
               value={nodeProps[key]}
               handleChange={(value) => {
-                console.log(nodeId, key, value);
                 setProp(nodeId, (props) => {
                   props[key] = value;
                 });

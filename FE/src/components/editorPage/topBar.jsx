@@ -1,5 +1,8 @@
 import { useEditor } from "@craftjs/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import { editorContext } from "../../pages/editor";
+import { sendRequest } from "../../apiHandler";
 
 function IconButton(props) {
   return (
@@ -13,9 +16,16 @@ function IconButton(props) {
   );
 }
 function EditorTopBar(props) {
+  const context = useContext(editorContext);
   const { actions, query, enabled } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
+  async function SavePage(data) {
+    const tempPageData = JSON.parse(JSON.stringify(props.page));
+    const test = await sendRequest("Pages/SaveChange", "PUT", data, {
+      Id: tempPageData.id,
+    });
+  }
   return (
     <div className="h-8 bg-stone-600 inline-block text-white text-center">
       <span>{props.text}</span>
@@ -35,7 +45,7 @@ function EditorTopBar(props) {
           icon={"fa-regular fa-floppy-disk"}
           text="Save"
           onClick={() => {
-            console.log(query.serialize());
+            SavePage(query.serialize());
           }}
         />
       </div>

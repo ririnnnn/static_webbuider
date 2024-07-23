@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EOLRH8BMkxMYiK+6hOVZzkmkXYCgjv8EEFXkn7gglqYQefEltv7x5P2qejAlzH03JsbTqG9pDQ0KUgjsC9oWkA==",
+  "dgSpecHash": "BKDv1fiB10tOEDOfQ1OkJrCofwwlgHG4QFuyNChBj692id5WtfIey5mQFrhXw+h9zc4Za9IZOTnIPLqBHG4KTw==",
   "success": true,
-  "projectFilePath": "/run/media/quang/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj",
+  "projectFilePath": "/mnt/Shared/DO_AN/BE/ImagesHost/ImagesHost.csproj",
   "expectedPackageFiles": [
     "/home/quang/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/home/quang/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",

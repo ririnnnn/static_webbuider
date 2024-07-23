@@ -7,8 +7,15 @@ export async function sendRequest(
   urlData,
   callback
 ) {
-  let url = api + controller + "/";
-  const response = await fetch(url, {
+  let url = api + controller;
+  let urlDataString = "";
+  if(urlData){
+    Object.keys(urlData).forEach((item)=>{
+      urlDataString += item+"="+urlData[item]+"&"
+    })
+    urlDataString = "?" + urlDataString.slice(0, -1);
+  }
+  const response = await fetch(url + urlDataString, {
     method: method,
     headers: {
       "Content-Type": "application/json",

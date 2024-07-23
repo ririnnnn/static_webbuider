@@ -10,6 +10,7 @@ const ediableList = { div: ediable.Div, button: ediable.Button };
 function Wrapper({ componentName, className, cfg, children, ...props }) {
   const check = /(flex|grid|top|inline|block|float|w-\d\/\d)/;
   const context = useContext(editorContext);
+  const editor = useEditor();
   const node = useNode((node) => ({
     events: node.events,
     data: node.data,
@@ -39,7 +40,6 @@ function Wrapper({ componentName, className, cfg, children, ...props }) {
     return str;
   }
   const InnerComponent = ediableList[componentName];
-  console.log("wrapper", className);
   return options.enabled ? (
     <div
       className={

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/run/media/quang/Shared/DO_AN/BE/API/API.csproj": {}
+    "/mnt/Shared/DO_AN/BE/API/API.csproj": {}
   },
   "projects": {
-    "/run/media/quang/Shared/DO_AN/BE/API/API.csproj": {
+    "/mnt/Shared/DO_AN/BE/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/run/media/quang/Shared/DO_AN/BE/API/API.csproj",
+        "projectUniqueName": "/mnt/Shared/DO_AN/BE/API/API.csproj",
         "projectName": "API",
-        "projectPath": "/run/media/quang/Shared/DO_AN/BE/API/API.csproj",
+        "projectPath": "/mnt/Shared/DO_AN/BE/API/API.csproj",
         "packagesPath": "/home/quang/.nuget/packages/",
-        "outputPath": "/run/media/quang/Shared/DO_AN/BE/API/obj/",
+        "outputPath": "/mnt/Shared/DO_AN/BE/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/quang/.nuget/NuGet/NuGet.Config"

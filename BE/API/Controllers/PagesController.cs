@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Models2;
 using Microsoft.AspNetCore.Authorization;
+using System.Text;
 
 namespace API.Controllers
 {
@@ -24,9 +25,29 @@ namespace API.Controllers
 
         // GET: api/Pages
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Page>>> GetPages()
+        public async Task<ActionResult<IEnumerable<Page>>> GetPages([FromQuery] string siteId)
         {
-            return await _context.Pages.ToListAsync();
+            var user_id = User.FindFirst("ID")?.Value;
+            if (user_id != null)
+            {
+                Guid userIdGuid = Guid.Parse(user_id);
+                Guid siteIdGuid = Guid.Parse(siteId);
+                return await _context.Pages
+                .Include("Site")
+                .Select(p => new Page
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    SiteId = p.SiteId,
+                    Status = p.Status,
+                    Site = p.Site
+                })
+                .Where(p => p.Site != null && p.Site.UserId == userIdGuid && p.SiteId == siteIdGuid)
+                .ToListAsync();
+            }
+            return Unauthorized();
+
         }
 
         // GET: api/Pages/5
@@ -113,6 +134,29 @@ namespace API.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+        [HttpPut("SaveChange")]
+        public async Task<ActionResult<Page>> PostPageChange([FromQuery] string id, [FromBody] string data)
+        {
+            var user_id = User.FindFirst("ID")?.Value;
+            if (user_id != null)
+            {
+                Guid userIdGuid = Guid.Parse(user_id);
+                Guid pageIdGuid = Guid.Parse(id);
+                var UpdatedPage = _context.Pages.Where(p => p.Id == pageIdGuid).FirstOrDefault();
+                if (UpdatedPage != null) { UpdatedPage.PageData = Encoding.UTF8.GetBytes(data); }
+                else return NotFound();
+                try
+                {
+                    await _context.SaveChangesAsync();
+                    return Ok(id);
+                }
+                catch
+                {
+                    return StatusCode(500);
+                }
+            }
+            return Unauthorized();
         }
 
         private bool PageExists(Guid id)

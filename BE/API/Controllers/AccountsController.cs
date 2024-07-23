@@ -119,9 +119,14 @@ namespace API.Controllers
         public async Task<IActionResult> Profile()
         {
             var user_id = User.FindFirst("ID")?.Value;
-            var user = await _context.Accounts.FindAsync(Guid.Parse(user_id));
-            return Ok(user);
+            if (user_id != null)
+            {
+                var user = await _context.Accounts.FindAsync(Guid.Parse(user_id));
+                return Ok(user);
+            }
+            else return Unauthorized();
         }
+
         private bool AccountExists(Guid id)
         {
             return _context.Accounts.Any(e => e.Id == id);
