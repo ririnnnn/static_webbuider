@@ -13,6 +13,7 @@ function RightSideMenu() {
   const menuList = {
     Properties: <EditorEditPanel></EditorEditPanel>,
     NodeTree: <NodeTreePanel></NodeTreePanel>,
+    Pages: <></>,
     "": <></>,
   };
   useEffect(() => {
@@ -62,6 +63,27 @@ function RightSideMenu() {
             }}
           >
             Node tree
+          </button>
+        )}
+        {activated === "Pages" ? (
+          <button
+            className="[writing-mode:vertical-lr] w-full text-sm py-2 bg-stone-100"
+            value={"Pages"}
+            onClick={(e) => {
+              handleMenuClick(e);
+            }}
+          >
+            Pages
+          </button>
+        ) : (
+          <button
+            className="[writing-mode:vertical-lr] w-full text-sm py-2 hover:bg-stone-100"
+            value={"Pages"}
+            onClick={(e) => {
+              handleMenuClick(e);
+            }}
+          >
+            Pages
           </button>
         )}
       </div>

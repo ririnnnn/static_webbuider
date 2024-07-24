@@ -54,8 +54,10 @@ function EditorPages() {
   async function loadPage() {
     const response = await sendRequest("Pages/" + pageId, "GET");
     const data = await response.json();
-    data.pageData = JSON.parse(decodeData(data.pageData));
-    setPage(data);
+    data.pageData = data.pageData
+      ? JSON.parse(decodeData(data.pageData))
+      : null;
+    setPage(JSON.parse(JSON.stringify(data)));
   }
   function UpdateContext() {
     setContextValue({
@@ -83,10 +85,11 @@ function EditorPages() {
       await loadPage();
     }
     if (pageId) run();
+    console.log("pageId: ", pageId);
   }, [pageId]);
   useEffect(() => {
     UpdateContext();
-    console.log(page);
+    console.log("page: ", page);
   }, [page]);
   return (
     <editorContext.Provider value={contextValue}>
@@ -99,9 +102,9 @@ function EditorPages() {
         <div className="h-screen flex flex-col w-screen font-sans text-base">
           <EditorTopBar text="test Editor Top bar" page={page}></EditorTopBar>
           <div className="flex-1 flex" style={{ height: "calc(100vh - 32px)" }}>
-            <EditorSideBar></EditorSideBar>
-            <EditorCanvas page={page}></EditorCanvas>
-            <RightSideMenu></RightSideMenu>
+            <EditorSideBar />
+            <EditorCanvas page={page} site={site} />
+            <RightSideMenu />
           </div>
         </div>
       </Editor>
