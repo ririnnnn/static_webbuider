@@ -209,10 +209,12 @@ namespace API.Controllers
         {
             try
             {
+#pragma warning disable CS8604 // Possible null reference argument.
                 var Obj = JsonSerializer.Deserialize<Dictionary<string, object>>(dataIn.ToString());
                 if (Obj != null)
                 {
                     var pageObj = JsonSerializer.Deserialize<Dictionary<string, object>>(Obj[Parentpath[..Parentpath.IndexOf('/')]].ToString());
+                    if (pageObj == null) return StatusCode(500);
                     if (Parentpath[(Parentpath.IndexOf('/') + 1)..] == "")
                     {
                         var childrenArray = pageObj;
@@ -225,6 +227,7 @@ namespace API.Controllers
                         {
                             childrenArray = new Dictionary<string, object>();
                         }
+                        if (childrenArray == null) return StatusCode(500);
                         childrenArray.Add(path, new { page = page.Id, children = new { } });
                         pageObj["children"] = childrenArray;
                         Obj[Parentpath[..Parentpath.IndexOf('/')]] = pageObj;
@@ -245,8 +248,10 @@ namespace API.Controllers
                         pageObj["children"] = addPageInPath(pageObj["children"], Parentpath[(Parentpath.IndexOf('/') + 1)..], path, page);
                         Obj[Parentpath[..Parentpath.IndexOf('/')]] = pageObj;
                     }
+                    return Obj;
                 }
-                return Obj;
+                else return StatusCode(500);
+#pragma warning restore CS8604 // Possible null reference argument.
             }
             catch
             {

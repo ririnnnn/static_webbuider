@@ -31,7 +31,9 @@ namespace API.Controllers
             var user = await _context.Accounts.FirstOrDefaultAsync(u => u.Username == acc.Username && u.Password == acc.Password);
             if (user != null)
             {
+#pragma warning disable CS8604 // Possible null reference argument.
                 var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
+#pragma warning restore CS8604 // Possible null reference argument.
                 var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
                 var claims = new[]
                 {
