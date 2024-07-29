@@ -3,7 +3,7 @@ import EditorSideBar from "../components/editorPage/sideBar";
 import EditorTopBar from "../components/editorPage/topBar";
 
 import { Editor, Frame, Element } from "@craftjs/core";
-import { Fragment, createContext, useEffect, useState } from "react";
+import { Fragment, createContext, useEffect, useRef, useState } from "react";
 import RightSideMenu from "../components/editorPage/rightSideMenu";
 
 import * as editable from "../components/editables";
@@ -23,6 +23,8 @@ function EditorPages() {
   const [pages, setPages] = useState([]);
   const [page, setPage] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
+  const [htmlRef, setHtmlRef] = useState(null);
+  const ref = useRef(null);
   const [contextValue, setContextValue] = useState({
     selectedNode: selectedNode,
     setSelectedNode: setSelectedNode,
@@ -67,6 +69,14 @@ function EditorPages() {
       nodeChange: false,
     });
   }
+  function saveHTML(ref, name) {
+    const htmlContent = ref.current.innerHTML;
+    const blob = new Blob([htmlContent], { type: "text/html" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = name + ".html";
+    a.click();
+  }
   useEffect(() => {
     loadSite();
   }, []);
@@ -77,7 +87,7 @@ function EditorPages() {
     run();
   }, [siteId]);
   useEffect(() => {
-    if (site.siteData) setPageId(site.siteData.path.index);
+    if (site.siteData) setPageId(site.siteData.path.index.page);
     UpdateContext();
   }, [site]);
   useEffect(() => {
@@ -85,12 +95,13 @@ function EditorPages() {
       await loadPage();
     }
     if (pageId) run();
-    console.log("pageId: ", pageId);
   }, [pageId]);
   useEffect(() => {
     UpdateContext();
-    console.log("page: ", page);
   }, [page]);
+  useEffect(() => {
+    if (ref.current) setHtmlRef(ref);
+  }, [ref.current]);
   return (
     <editorContext.Provider value={contextValue}>
       <Editor
@@ -100,11 +111,16 @@ function EditorPages() {
         }}
       >
         <div className="h-screen flex flex-col w-screen font-sans text-base">
-          <EditorTopBar text="test Editor Top bar" page={page}></EditorTopBar>
+          <EditorTopBar
+            text="test Editor Top bar"
+            page={page}
+            saveHTML={saveHTML}
+            htmlRef={htmlRef}
+          ></EditorTopBar>
           <div className="flex-1 flex" style={{ height: "calc(100vh - 32px)" }}>
             <EditorSideBar />
-            <EditorCanvas page={page} site={site} />
-            <RightSideMenu />
+            <EditorCanvas page={page} site={site} ref={ref} />
+            <RightSideMenu site={site} loadSite={loadSite} />
           </div>
         </div>
       </Editor>

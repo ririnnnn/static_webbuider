@@ -1,11 +1,11 @@
 import { Editor, Frame, Element, useEditor } from "@craftjs/core";
 
 import Viewport from "./viewport";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import { Container } from "../editables";
 
-function EditorCanvas({ props, children, page }) {
+const EditorCanvas = React.forwardRef(({ props, children, page }, ref) => {
   const editor = useEditor();
   // viewport information
   const [viewportHeight, setViewportHeight] = useState(1080);
@@ -64,11 +64,13 @@ function EditorCanvas({ props, children, page }) {
         y_offset={offset.y}
         scale={scale}
       >
-        <Frame>
-          <Element is={Container} canvas></Element>
-        </Frame>
+        <div ref={ref}>
+          <Frame>
+            <Element is={Container} canvas></Element>
+          </Frame>
+        </div>
       </Viewport>
     </div>
   );
-}
+});
 export default EditorCanvas;

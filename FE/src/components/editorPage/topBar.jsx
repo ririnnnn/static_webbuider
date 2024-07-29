@@ -40,7 +40,13 @@ function EditorTopBar(props) {
           }}
         />
         <IconButton icon={"fa-solid fa-print"} text="export to pdf" />
-        <IconButton icon={"fa-solid fa-download"} text="download" />
+        <IconButton
+          icon={"fa-solid fa-download"}
+          text="download"
+          onClick={() => {
+            props.saveHTML(props.htmlRef, "test");
+          }}
+        />
         <IconButton
           icon={"fa-regular fa-floppy-disk"}
           text="Save"

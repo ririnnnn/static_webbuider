@@ -10,9 +10,18 @@ using Microsoft.AspNetCore.Authorization;
 using System.Text.Json;
 using System.Text;
 using NuGet.Packaging.Signing;
+using NuGet.Protocol;
 
 namespace API.Controllers
 {
+    public class AddPageData
+    {
+        public required string Id { get; set; }
+        public required string ParentPath { get; set; }
+        public required string Path { get; set; }
+        public required string Name { get; set; }
+
+    }
     [Route("api/[controller]")]
     [Authorize]
     [ApiController]
@@ -124,7 +133,7 @@ namespace API.Controllers
                     Description = "index",
                     SiteId = newSite.Id
                 };
-                var siteData = new { path = new { index = indexPage.Id } };
+                var siteData = new { path = new { index = new { page = indexPage.Id, children = Array.Empty<object>() } } };
                 newSite.SiteData = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(siteData));
                 _context.Sites.Add(newSite);
                 _context.Pages.Add(indexPage);
@@ -148,20 +157,101 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSite(Guid id)
         {
-            var Site = await _context.Sites.FindAsync(id);
-            if (Site == null)
+            var user_id = User.FindFirst("ID")?.Value;
+            if (user_id != null)
             {
-                return NotFound();
+                Guid userIdString = Guid.Parse(user_id);
+                var Site = await _context.Sites.Where(s => s.Id == id && s.UserId == userIdString).FirstOrDefaultAsync();
+                if (Site == null)
+                {
+                    return NotFound();
+                }
+                var Pages = await _context.Pages.Where(p => p.SiteId == Site.Id).ToListAsync();
+                _context.Pages.RemoveRange(Pages);
+                _context.Sites.Remove(Site);
+                await _context.SaveChangesAsync();
+
+                return NoContent();
             }
+            return Unauthorized();
+        }
+        [HttpPost("addPage")]
+        public async Task<IActionResult> addPage([FromBody] AddPageData data)
+        {
+            Guid id = Guid.Parse(data.Id);
+            var user_id = User.FindFirst("ID")?.Value;
+            if (user_id != null)
+            {
+                Guid userIdString = Guid.Parse(user_id);
+                var site = await _context.Sites.Where(s => s.Id == id && s.UserId == userIdString).FirstOrDefaultAsync();
+                if (site == null) return BadRequest();
+                Page newPage = new Page() { Id = Guid.NewGuid(), Name = data.Name, Status = 1, SiteId = site.Id };
+                var siteData = JsonSerializer.Deserialize<Dictionary<string, object>>(site.SiteData);
+                string tempPathString = data.ParentPath;
 
-            _context.Sites.Remove(Site);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+                if (siteData == null) return BadRequest();
+                if (siteData.TryGetValue("path", out var pathValue))
+                {
+                    siteData["path"] = addPageInPath(pathValue, tempPathString, data.Path, newPage);
+                    site.SiteData = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(siteData));
+                    _context.Pages.Add(newPage);
+                    await _context.SaveChangesAsync();
+                    return Ok(siteData["path"]);
+                }
+            }
+            return Unauthorized();
         }
         private bool SiteExists(Guid id)
         {
             return _context.Sites.Any(e => e.Id == id);
+        }
+        private object addPageInPath(object dataIn, string Parentpath, string path, Page page)
+        {
+            try
+            {
+                var Obj = JsonSerializer.Deserialize<Dictionary<string, object>>(dataIn.ToString());
+                if (Obj != null)
+                {
+                    var pageObj = JsonSerializer.Deserialize<Dictionary<string, object>>(Obj[Parentpath[..Parentpath.IndexOf('/')]].ToString());
+                    if (Parentpath[(Parentpath.IndexOf('/') + 1)..] == "")
+                    {
+                        var childrenArray = pageObj;
+                        try
+                        {
+                            var temp = JsonSerializer.Deserialize<Dictionary<string, object>>(pageObj["children"].ToString());
+                            childrenArray = temp;
+                        }
+                        catch
+                        {
+                            childrenArray = new Dictionary<string, object>();
+                        }
+                        childrenArray.Add(path, new { page = page.Id, children = new { } });
+                        pageObj["children"] = childrenArray;
+                        Obj[Parentpath[..Parentpath.IndexOf('/')]] = pageObj;
+                    }
+                    else
+                    {
+                        string tempPath = Parentpath[(Parentpath.IndexOf('/') + 1)..];
+                        var childrenArray = pageObj;
+                        try
+                        {
+                            var temp = JsonSerializer.Deserialize<Dictionary<string, object>>(pageObj["children"].ToString());
+                            childrenArray = temp;
+                        }
+                        catch
+                        {
+                            childrenArray = new Dictionary<string, object>();
+                        }
+                        pageObj["children"] = addPageInPath(pageObj["children"], Parentpath[(Parentpath.IndexOf('/') + 1)..], path, page);
+                        Obj[Parentpath[..Parentpath.IndexOf('/')]] = pageObj;
+                    }
+                }
+                return Obj;
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

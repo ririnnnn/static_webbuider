@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import EditorEditPanel from "./editPanel";
 import { editorContext } from "../../pages/editor";
 import NodeTreePanel from "./nodeTreePanel";
+import PagesPanel from "./pagesPanel";
 
-function RightSideMenu() {
+function RightSideMenu(props) {
   const [activated, setActivated] = useState("");
   const context = useContext(editorContext);
   function handleMenuClick(e) {
@@ -13,7 +14,13 @@ function RightSideMenu() {
   const menuList = {
     Properties: <EditorEditPanel></EditorEditPanel>,
     NodeTree: <NodeTreePanel></NodeTreePanel>,
-    Pages: <></>,
+    Pages: (
+      <PagesPanel
+        data={props.site.siteData ? props.site.siteData.path : null}
+        site={props.site}
+        loadSite={props.loadSite}
+      ></PagesPanel>
+    ),
     "": <></>,
   };
   useEffect(() => {

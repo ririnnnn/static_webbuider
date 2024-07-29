@@ -94,14 +94,25 @@ function SitesMonitors() {
       title: "",
       key: "action",
       render: (text, record, index) => (
-        <>
-          <i
-            className="fa-solid fa-pen-to-square"
+        <div className="flex justify-center">
+          <div
+            className="h-6 w-6 mx-1 flex justify-center items-center rounded hover:bg-zinc-200"
             onClick={() => {
               navigate("/edit", { state: { siteId: record.id } });
             }}
-          ></i>
-        </>
+          >
+            <i className="fa-solid fa-pen-to-square"></i>
+          </div>
+          <div className="h-6 w-6 mx-1 flex justify-center items-center rounded hover:bg-zinc-200">
+            <i className="fa-solid fa-eye mx-2"></i>
+          </div>
+          <div
+            className="h-6 w-6 mx-1 flex justify-center items-center rounded hover:bg-zinc-200"
+            onClick={deleteSite(record.id)}
+          >
+            <i className="fa-solid fa-trash-can mx-2"></i>
+          </div>
+        </div>
       ),
     },
   ];
@@ -122,6 +133,13 @@ function SitesMonitors() {
   }
   function handleOnChange(pagination) {
     Refresh(pagination.current, pagination.pageSize);
+  }
+  function deleteSite(id) {
+    return async () => {
+      const response = await sendRequest("Sites/" + id, "DELETE");
+      alert(response.ok);
+      Refresh(1, 10);
+    };
   }
   useEffect(() => {
     const getSites = async () => {
@@ -171,6 +189,7 @@ function SitesMonitors() {
             columns={tableColumn}
             pagination={pagination}
             onChange={handleOnChange}
+            rowKey={"id"}
           />
           <div className="h-10"></div>
         </>
