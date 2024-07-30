@@ -19,6 +19,7 @@ function RightSideMenu(props) {
         data={props.site.siteData ? props.site.siteData.path : null}
         site={props.site}
         loadSite={props.loadSite}
+        setPageId={props.setPageId}
       ></PagesPanel>
     ),
     "": <></>,

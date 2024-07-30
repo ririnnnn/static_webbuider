@@ -21,7 +21,12 @@ function NodeDisplay(props) {
         </div>
         {isHovered ? (
           <div className="flex w-fit">
-            <div className="w-5 h-5 flex items-center justify-center rounded hover:bg-zinc-200">
+            <div
+              className="w-5 h-5 flex items-center justify-center rounded hover:bg-zinc-200"
+              onClick={() => {
+                props.onEdit(props.path);
+              }}
+            >
               <i className="fa-regular fa-pen-to-square"></i>
             </div>
             <div
@@ -62,6 +67,9 @@ function PagesPanel(props) {
               setAddPath(path);
               setShowAddModal(true);
             }}
+            onEdit={async () => {
+              props.setPageId(data[path].page);
+            }}
           >
             {renderNode(data[path].children, parentPath + path + "/")}
           </NodeDisplay>
@@ -75,6 +83,9 @@ function PagesPanel(props) {
             onAdd={async (path) => {
               setAddPath(path);
               setShowAddModal(true);
+            }}
+            onEdit={async () => {
+              props.setPageId(data[path].page);
             }}
           />
         );

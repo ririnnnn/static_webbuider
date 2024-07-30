@@ -97,6 +97,7 @@ function EditorPages() {
     if (pageId) run();
   }, [pageId]);
   useEffect(() => {
+    console.log(page);
     UpdateContext();
   }, [page]);
   useEffect(() => {
@@ -120,7 +121,11 @@ function EditorPages() {
           <div className="flex-1 flex" style={{ height: "calc(100vh - 32px)" }}>
             <EditorSideBar />
             <EditorCanvas page={page} site={site} ref={ref} />
-            <RightSideMenu site={site} loadSite={loadSite} />
+            <RightSideMenu
+              site={site}
+              loadSite={loadSite}
+              setPageId={setPageId}
+            />
           </div>
         </div>
       </Editor>

@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 
 namespace API.Controllers
 {
@@ -49,6 +50,16 @@ namespace API.Controllers
                 return Ok(new JwtSecurityTokenHandler().WriteToken(token));
             }
             else return BadRequest();
+        }
+        [AllowAnonymous]
+        [HttpPost("Google")]
+        public async Task<IActionResult> LoginWithGoogle([FromBody] string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
+            var response = await client.GetAsync("https://www.googleapis.com/oauth2/v2/userinfo");
+            var content = await response.Content.ReadAsStringAsync();
+            return Ok(content);
         }
     }
 }

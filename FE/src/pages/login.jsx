@@ -3,6 +3,8 @@ import { sendRequest } from "../apiHandler";
 import { LoginManager } from "../loginManager";
 import { Input } from "../components/UIElements";
 import { useNavigate } from "react-router-dom";
+import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -23,6 +25,23 @@ function LoginPage() {
       }
     } else alert("Lỗi hệ thống");
   }
+  const gglogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      // tokenResponse contains the access token and other data
+      const { access_token } = tokenResponse;
+
+      try {
+        const res = sendRequest("login/Google", "post", access_token);
+        console.log(await res.text());
+      } catch (err) {
+        console.error("Failed to fetch user data", err);
+      }
+    },
+    onError: (error) => {
+      console.error("Login failed", error);
+    },
+  });
+
   return (
     <div className="w-full flex justify-center text-base">
       <div className="w-72 h-full pt-10">
@@ -72,6 +91,15 @@ function LoginPage() {
         </div>
         <div className="border border-stone-600 rounded pt-1 p-4">
           <div className="text-center">Login with</div>
+          <GoogleLogin
+            onSuccess={(credentialResponse) => {
+              console.log(credentialResponse);
+            }}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
+          <button onClick={() => gglogin()}>login</button>
         </div>
       </div>
     </div>

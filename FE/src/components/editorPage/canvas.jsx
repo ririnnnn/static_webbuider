@@ -37,6 +37,10 @@ const EditorCanvas = React.forwardRef(({ props, children, page }, ref) => {
   }
   useEffect(() => {
     if (page.pageData) editor.actions.deserialize(page.pageData);
+    else
+      editor.actions.deserialize(
+        '{"ROOT":{"type":{"resolvedName":"Container"},"isCanvas":true,"props":{},"displayName":"Container","custom":{},"hidden":false,"nodes":[],"linkedNodes":{}}}'
+      );
   }, [page]);
   return (
     <div
