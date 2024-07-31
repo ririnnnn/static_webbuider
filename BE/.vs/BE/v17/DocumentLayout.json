@@ -19,10 +19,6 @@
       "RelativeMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|solutionrelative:api\\models\\logininfor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4EB54FF8-7D35-4370-8BC2-610C7F08FB8C}|ImagesHost\\ImagesHost.csproj|e:\\do_an\\be\\imageshost\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4EB54FF8-7D35-4370-8BC2-610C7F08FB8C}|ImagesHost\\ImagesHost.csproj|solutionrelative:imageshost\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|e:\\do_an\\be\\api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB82141A-2292-489D-9BE6-7187DF8A49FC}|API\\API.csproj|solutionrelative:api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -77,6 +73,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\DO_AN\\BE\\BE\\Models\\WebbuilderContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BE\\Models\\WebbuilderContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\DO_AN\\BE\\ImagesHost\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ImagesHost\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,7 +90,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "AccountsController.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Controllers\\AccountsController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\AccountsController.cs",
@@ -114,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "WebbuilderContext.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Models\\WebbuilderContext.cs",
               "RelativeDocumentMoniker": "API\\Models\\WebbuilderContext.cs",
@@ -126,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "API.csproj",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\API.csproj",
               "RelativeDocumentMoniker": "API\\API.csproj",
@@ -138,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "LoginController.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\LoginController.cs",
@@ -168,7 +168,7 @@
               "RelativeDocumentMoniker": "API\\Program.cs",
               "ToolTip": "E:\\DO_AN\\BE\\API\\Program.cs",
               "RelativeToolTip": "API\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAxAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-19T06:06:57.264Z",
               "EditorCaption": ""
@@ -187,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "PagesController.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\API\\Controllers\\PagesController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\PagesController.cs",
@@ -199,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 18,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\ImagesHost\\Program.cs",
               "RelativeDocumentMoniker": "ImagesHost\\Program.cs",
@@ -211,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "BE.http",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\BE.http",
               "RelativeDocumentMoniker": "BE\\BE.http",
@@ -223,7 +223,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\Program.cs",
               "RelativeDocumentMoniker": "BE\\Program.cs",
@@ -235,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "LoginController.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "BE\\Controllers\\LoginController.cs",
@@ -247,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "AccountsController.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\Controllers\\AccountsController.cs",
               "RelativeDocumentMoniker": "BE\\Controllers\\AccountsController.cs",
@@ -259,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\Models\\LoginRequest.cs",
               "RelativeDocumentMoniker": "BE\\Models\\LoginRequest.cs",
@@ -271,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\appsettings.json",
               "RelativeDocumentMoniker": "BE\\appsettings.json",
@@ -283,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "BE\\Controllers\\WeatherForecastController.cs",
@@ -295,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "PagesController.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\Controllers\\PagesController.cs",
               "RelativeDocumentMoniker": "BE\\Controllers\\PagesController.cs",
@@ -307,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "WebbuilderContext.cs",
               "DocumentMoniker": "E:\\DO_AN\\BE\\BE\\Models\\WebbuilderContext.cs",
               "RelativeDocumentMoniker": "BE\\Models\\WebbuilderContext.cs",

@@ -1,12 +1,20 @@
 import { useState } from "react";
-
+import { sendRequest } from "../apiHandler";
 function RegisterPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
-  async function register() {}
+  async function register() {
+    if (password != password2) return;
+    const response = await sendRequest("Accounts", "post", {
+      Username: username,
+      Password: password,
+      Email: email,
+    });
+    if (response.ok) console.log(await response.json());
+  }
   return (
     <>
       <div className="border border-stone-600 rounded-xl p-4 w-fit">

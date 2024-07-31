@@ -31,8 +31,21 @@ function LoginPage() {
       const { access_token } = tokenResponse;
 
       try {
-        const res = sendRequest("login/Google", "post", access_token);
-        console.log(await res.text());
+        const response = await sendRequest(
+          "login/Google",
+          "post",
+          access_token
+        );
+        if (response.status == 200) {
+          window.sessionStorage.setItem("userToken", await response.text());
+          navigate("/profile");
+          return true;
+        } else if (response.status == 204) {
+          //redirect to register here
+        } else {
+          window.sessionStorage.setItem("userToken", null);
+          return false;
+        }
       } catch (err) {
         console.error("Failed to fetch user data", err);
       }

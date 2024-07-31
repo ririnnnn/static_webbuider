@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using API.Models2;
 using System.Text.Json;
+using API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<WebbuilderContext>(options =>
@@ -34,6 +35,8 @@ builder.Services.AddControllers().AddJsonOptions(options =>
         options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
     });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.Configure<GmailSmtpSettings>(builder.Configuration.GetSection("GmailSmtpSettings"));
+builder.Services.AddSingleton<GmailEmailService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

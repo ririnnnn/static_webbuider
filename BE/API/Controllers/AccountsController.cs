@@ -11,6 +11,12 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
+    public class RegisterInfor
+    {
+        public required string Username { get; set; }
+        public required string Password { get; set; }
+        public required string Email { get; set; }
+    }
     [Route("api/[controller]")]
     [ApiController]
     public class AccountsController : ControllerBase
@@ -74,31 +80,6 @@ namespace API.Controllers
             return NoContent();
         }
 
-        // POST: api/Accounts
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Account>> PostAccount(Account account)
-        {
-            _context.Accounts.Add(account);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (AccountExists(account.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("GetAccount", new { id = account.Id }, account);
-        }
-
         // DELETE: api/Accounts/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAccount(Guid id)
@@ -125,6 +106,36 @@ namespace API.Controllers
                 return Ok(user);
             }
             else return Unauthorized();
+        }
+        [HttpPost]
+        public async Task<ActionResult<Account>> Register(RegisterInfor account)
+        {
+            Account newAcc = new()
+            {
+                Id = Guid.NewGuid(),
+                Username = account.Username,
+                Password = account.Password,
+                Email = account.Email,
+            };
+            if (_context.Accounts.FirstOrDefault(a => a.Username == newAcc.Username) != null) return BadRequest("Username existed");
+            if (_context.Accounts.FirstOrDefault(a => a.Email == newAcc.Email) != null) return BadRequest("Email existed");
+            _context.Accounts.Add(newAcc);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (AccountExists(newAcc.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return CreatedAtAction("GetAccount", new { id = newAcc.Id }, account);
         }
 
         private bool AccountExists(Guid id)

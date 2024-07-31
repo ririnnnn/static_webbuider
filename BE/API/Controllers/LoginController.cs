@@ -11,6 +11,13 @@ using System.Text.Json;
 
 namespace API.Controllers
 {
+    public class GoogleUserInfo
+    {
+        public string? id { get; set; }
+        public required string email { get; set; }
+        public string? name { get; set; }
+        public string? picture { get; set; }
+    }
     [Route("api/[controller]")]
     [Authorize]
     [ApiController]
@@ -59,7 +66,46 @@ namespace API.Controllers
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
             var response = await client.GetAsync("https://www.googleapis.com/oauth2/v2/userinfo");
             var content = await response.Content.ReadAsStringAsync();
-            return Ok(content);
+            var userInfor = JsonSerializer.Deserialize<GoogleUserInfo>(content);
+            if (userInfor == null) return BadRequest("invalid token");
+            var user = await _context.Accounts.FirstOrDefaultAsync(u => u.Email == userInfor.email);
+            if (user == null)
+            {
+#pragma warning disable CS8604 // Possible null reference argument.
+                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
+#pragma warning restore CS8604 // Possible null reference argument.
+                var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+                var claims = new[]
+                {
+                    new Claim("email", userInfor.email)
+                };
+
+                var token = new JwtSecurityToken(null,
+                  null,
+                  claims,
+                  expires: DateTime.Now.AddMinutes(120),
+                  signingCredentials: credentials);
+                return NoContent();
+            }
+            else
+            {
+#pragma warning disable CS8604 // Possible null reference argument.
+                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
+#pragma warning restore CS8604 // Possible null reference argument.
+                var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+                var claims = new[]
+                {
+                    new Claim("ID", user.Id.ToString())
+                };
+
+                var token = new JwtSecurityToken(null,
+                  null,
+                  claims,
+                  expires: DateTime.Now.AddMinutes(120),
+                  signingCredentials: credentials);
+
+                return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+            }
         }
     }
 }
